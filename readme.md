@@ -1,15 +1,7 @@
-# php package boilerplate
+# php string
 
-Basic boilerplate for generic php packages
+String manipuklation classes for php
 
 ## Usage
 
-Create new project
-
-```
-composer create-project nonetallt/package-boilerplate [project-name]
-```
-
-## New package todo
-
-* edit composer.json
+Most functionality is contained in the [Str class]('/src/Str.php')
