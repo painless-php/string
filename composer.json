@@ -1,0 +1,32 @@
+{
+    "name": "nonetallt/string",
+    "description": "String processing helpers",
+    "type": "library",
+    "require": {
+        "php": ">=7.1",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1",
+        "spatie/phpunit-watcher": "^1.22",
+        "vlucas/phpdotenv": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nonetallt\\String\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "test/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.nanu.systems"
+        }
+    ]
+}
