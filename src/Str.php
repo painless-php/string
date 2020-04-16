@@ -233,6 +233,42 @@ class Str
     }
 
     /**
+     * Convert given value into string
+     *
+     */
+    public static function convert($value) : string
+    {
+        if(! static::isConvertable($value)) {
+            $type = is_object($value) ? get_class($value) : gettype($value);
+            $msg = "Given value of type $type is not str convertable";
+            throw new \InvalidArgumentException($msg);
+        }
+
+        return (string)$value;
+    }
+
+    /**
+     * Describe the given value as a string
+     *
+     */
+    public static function describe($value) : string
+    {
+        if(is_bool($value)) {
+            return $value ? 'true' : false;
+        }
+
+        if(is_null($value)) {
+            return 'null';
+        }
+
+        if(is_object($value)) {
+            return get_class($value);
+        }
+
+        return (string)$value;
+    }
+
+    /**
      * Generates a cryptographically secure random string
      *
      */

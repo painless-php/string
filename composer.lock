@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fcdd7601c6c3ee90bb30ba7b702255c2",
+    "content-hash": "5cfa728fc402eaff905ab0e724c68197",
     "packages": [],
     "packages-dev": [
         {
@@ -380,6 +380,46 @@
                 "object graph"
             ],
             "time": "2020-01-17T21:11:47+00:00"
+        },
+        {
+            "name": "nonetallt/markdown-documentation",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:worfer/markdown-documentation.git",
+                "reference": "899bea50f48364ab7f313ac16fc4f8aab39699af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packages.nanu.systems/downloads/nonetallt/markdown-documentation/nonetallt-markdown-documentation-dev-master-120a52.zip",
+                "reference": "899bea50f48364ab7f313ac16fc4f8aab39699af",
+                "shasum": "c6fcdd056d16c6b52a21c77c6c22eaf90537802f"
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.1",
+                "spatie/phpunit-watcher": "^1.22",
+                "vlucas/phpdotenv": "^4.1"
+            },
+            "bin": [
+                "bin/markdown-documentation"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nonetallt\\Markdown\\Documentation\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Test\\": "test/"
+                }
+            },
+            "description": "Generate markdown documentation for classes",
+            "time": "2020-04-16T12:47:29+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -2683,11 +2723,14 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "nonetallt/markdown-documentation": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1"
+        "php": ">=7.1",
+        "ext-mbstring": "*"
     },
     "platform-dev": []
 }
