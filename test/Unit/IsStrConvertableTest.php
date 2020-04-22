@@ -3,7 +3,6 @@
 namespace Test\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Nonetallt\Templating\PlaceholderFormat;
 use Nonetallt\String\Str;
 
 class IsStrConvertableTest extends TestCase

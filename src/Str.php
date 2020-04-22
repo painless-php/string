@@ -3,6 +3,7 @@
 namespace Nonetallt\String;
 
 use Nonetallt\String\Language\English;
+use Nonetallt\String\Exception\TypeConversionException;
 
 class Str
 {
@@ -235,16 +236,29 @@ class Str
     /**
      * Convert given value into string
      *
+     * @throws TypeConversionException
+     *
      */
-    public static function convert($value) : string
+    public static function convertFrom($value) : string
     {
         if(! static::isConvertable($value)) {
             $type = is_object($value) ? get_class($value) : gettype($value);
             $msg = "Given value of type $type is not str convertable";
-            throw new \InvalidArgumentException($msg);
+            throw new TypeConversionException($msg);
         }
 
         return (string)$value;
+    }
+
+    /**
+     * Convert string into the specified type
+     *
+     * @throws TypeConversionException
+     *
+     */
+    public static function convertTo(string $value, TypeConverterInterface $converter)
+    {
+        return $converter->convert($value);
     }
 
     /**
@@ -263,6 +277,18 @@ class Str
 
         if(is_object($value)) {
             return get_class($value);
+        }
+
+        if(is_array($value)) {
+            return 'array';
+        }
+
+        if(is_resource($value)) {
+            return 'resource';
+        }
+
+        if(is_callable($value)) {
+            return 'callable';
         }
 
         return (string)$value;
