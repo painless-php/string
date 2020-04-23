@@ -259,7 +259,16 @@ class Str
     public static function convertTo(string $value, $converter)
     {
         if(is_string($converter)) {
-            $class = TypeConversionMapping::MAPPING[$converter];
+
+            if($converter === 'string') {
+                return $value;
+            }
+
+            $class = TypeConversionMapping::MAPPING[$converter] ?? null;
+            if($class === null) {
+                $msg = "Converter matching alias '$converter' not found";
+                throw new TypeConversionException($msg);
+            }
             $converter = new $class();
         }
 

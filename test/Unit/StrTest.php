@@ -4,6 +4,7 @@ namespace Test\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Nonetallt\String\Str;
+use Nonetallt\String\Exception\TypeConversionException;
 
 class StrTest extends TestCase
 {
@@ -152,5 +153,16 @@ class StrTest extends TestCase
     public function testConvertToFindsConverterByMappingName()
     {
         $this->assertEquals(10.2, Str::convertTo('10.2', 'float'));
+    }
+
+    public function testTypeConversionExceptionIsThrownWhenConversionMappingIsNotFound()
+    {
+        $this->expectException(TypeConversionException::class);
+        Str::convertTo('foo', 'kappa');
+    }
+
+    public function testConvertToReturnsOriginalValueWhenConvertingToString()
+    {
+        $this->assertEquals('foo', Str::convertTo('foo', 'string'));
     }
 }
