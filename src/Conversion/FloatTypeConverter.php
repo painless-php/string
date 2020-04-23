@@ -13,6 +13,6 @@ class FloatTypeConverter implements TypeConverterInterface
             return floatval($value);
         }
 
-        throw TypeConversionException::fromConversion($this, $value);
+        throw TypeConversionException::fromConversion($value, $this);
     }
 }

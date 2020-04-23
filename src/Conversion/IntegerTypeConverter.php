@@ -13,6 +13,6 @@ class IntegerTypeConverter implements TypeConverterInterface
             return intval($value);
         }
 
-        throw TypeConversionException::fromConversion($this, $value);
+        throw TypeConversionException::fromConversion($value, $this);
     }
 }

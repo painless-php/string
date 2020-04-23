@@ -13,6 +13,6 @@ class NullTypeConverter implements TypeConverterInterface
             return null;
         }
 
-        throw TypeConversionException::fromConversion($this, $value);
+        throw TypeConversionException::fromConversion($value, $this);
     }
 }

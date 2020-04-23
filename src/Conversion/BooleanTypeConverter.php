@@ -17,6 +17,6 @@ class BooleanTypeConverter implements TypeConverterInterface
             return false;
         }
 
-        throw TypeConversionException::fromConversion($this, $value);
+        throw TypeConversionException::fromConversion($value, $this);
     }
 }
