@@ -2,8 +2,8 @@
 
 namespace Nonetallt\String;
 
-use Nonetallt\String\Language\English;
 use Nonetallt\String\Exception\TypeConversionException;
+use Nonetallt\String\Conversion\TypeConversionMapping;
 
 class Str
 {
@@ -256,9 +256,22 @@ class Str
      * @throws TypeConversionException
      *
      */
-    public static function convertTo(string $value, TypeConverterInterface $converter)
+    public static function convertTo(string $value, $converter)
     {
-        return $converter->convert($value);
+        if(is_string($converter)) {
+            $class = TypeConversionMapping::MAPPING[$converter];
+            $converter = new $class();
+        }
+
+        $interface = TypeConverterInterface::class;
+
+        if(class_implements($converter, $interface)) {
+            return $converter->convert($value);
+        }
+
+        $msg = "Converter must be either a string or an instance of $interface";
+        throw new TypeConversionException($msg);
+
     }
 
     /**

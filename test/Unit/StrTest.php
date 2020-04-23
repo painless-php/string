@@ -148,4 +148,9 @@ class StrTest extends TestCase
     {
         $this->assertEquals(10, strlen(Str::random(10)));
     }
+
+    public function testConvertToFindsConverterByMappingName()
+    {
+        $this->assertEquals(10.2, Str::convertTo('10.2', 'float'));
+    }
 }
