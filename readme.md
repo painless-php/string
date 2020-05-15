@@ -1,4 +1,4 @@
-# php string
+# string
 
 String manipuklation classes for php
 
