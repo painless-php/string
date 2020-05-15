@@ -15,7 +15,7 @@ class TypeConversionException extends \Exception
     {
         $class = $converter === null ? '' :  'using ' . get_class($converter);
         $value = is_object($value) ? get_class($value) : gettype($value);
-        $message = "Could not convert $value to string";
+        $message = "Could not convert string $value$class";
 
         return new self($message, $code, $previous);
     }
