@@ -2,9 +2,11 @@
 
 String manipuklation classes for php
 
-## Usage
+## Public API
 
-Most functionality is contained in the [Str class](docs/Str.md)
+#### Core
+
+* [Str](docs/Str.md)
 
 ## TODO
 
