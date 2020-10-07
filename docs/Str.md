@@ -6,6 +6,20 @@
 
 ```php
 /**
+* Prepend a given prefix to string. Prefix is not prepended if the given
+* subject already has that prefix.
+*
+*/
+public static function addPrefix(string $subject, string $prefix);
+
+/**
+* Append a given suffix to string. Suffix is not appended if the given
+* subject already has that suffix.
+*
+*/
+public static function addSuffix(string $subject, string $suffix);
+
+/**
 * Get the part of string after first occurence of another string
 *
 */
@@ -32,8 +46,18 @@ public static function contains(string $subject, string $another) : bool;
 /**
 * Convert given value into string
 *
+* @throws TypeConversionException
+*
 */
-public static function convert($value) : string;
+public static function convertFrom($value) : string;
+
+/**
+* Convert string into the specified type
+*
+* @throws TypeConversionException
+*
+*/
+public static function convertTo(string $value, $converter);
 
 /**
 * Describe the given value as a string
@@ -84,6 +108,16 @@ public static function numbers() : array;
 public static function random(int $length, $characters = null) : string;
 
 /**
+* Remove all specified sequences from the beginning of the subject
+*
+* While removePrefix only removes one prefix, this method will keep
+* removing given prefixes until there are no prefixes at the beginning of
+* the string.
+*
+*/
+public static function removeLeading(string $subject, string ...$prefixes) : string;
+
+/**
 * Remove prefix from beginning of subject string
 *
 */
@@ -100,6 +134,16 @@ public static function removeRecurring(string $subject, string $character) : str
 *
 */
 public static function removeSuffix(string $subject, string $suffix) : string;
+
+/**
+* Remove all specified sequences from the end of the subject
+*
+* While removeSuffix only removes one suffix, this method will keep
+* removing given suffixes until there are no suffixes at the end of the
+* string.
+*
+*/
+public static function removeTrailing(string $subject, string ...$suffixes) : string;
 
 /**
 * Extract a substring from the subject string

@@ -8,6 +8,10 @@ String manipuklation classes for php
 
 * [Str](docs/Str.md)
 
+#### Exception
+
+* Nonetallt\String\Exception\TypeConversionException
+
 ## TODO
 
 * get template classes from helpers
