@@ -423,12 +423,16 @@ class Str
     /**
      * Remove all specified sequences from the beginning of the subject
      *
+     * While removePrefix only removes one prefix, this method will keep
+     * removing given prefixes until there are no prefixes at the beginning of
+     * the string.
+     *
      */
-    public static function removeLeading(string $subject, string ...$strings) : string
+    public static function removeLeading(string $subject, string ...$prefixes) : string
     {
-        while(static::startsWith($subject, ...$strings)) {
+        while(static::startsWith($subject, ...$prefixes)) {
 
-            foreach($strings as $prefix) {
+            foreach($prefixes as $prefix) {
                 $subject = static::removePrefix($subject, $prefix);
             }
         }
@@ -439,13 +443,17 @@ class Str
     /**
      * Remove all specified sequences from the end of the subject
      *
+     * While removeSuffix only removes one suffix, this method will keep
+     * removing given suffixes until there are no suffixes at the end of the
+     * string.
+     *
      */
-    public static function removeTrailing(string $subject, string ...$strings) : string
+    public static function removeTrailing(string $subject, string ...$suffixes) : string
     {
-        while(static::endsWith($subject, ...$strings)) {
+        while(static::endsWith($subject, ...$suffixes)) {
 
-            foreach($strings as $prefix) {
-                $subject = static::removeSuffix($subject, $prefix);
+            foreach($suffixes as $suffix) {
+                $subject = static::removeSuffix($subject, $suffix);
             }
         }
 
