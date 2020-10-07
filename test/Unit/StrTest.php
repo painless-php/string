@@ -165,4 +165,44 @@ class StrTest extends TestCase
     {
         $this->assertEquals('foo', Str::convertTo('foo', 'string'));
     }
-}
+
+    public function testRemovePrefixRemovesLeadingPrefix()
+    {
+        $this->assertEquals('Keepo', Str::removePrefix('KappaKeepo', 'Kappa'));
+    }
+
+    public function testRemoveSuffixRemovesTrailingSuffix()
+    {
+        $this->assertEquals('Kappa', Str::removeSuffix('KappaKeepo', 'Keepo'));
+    }
+
+    public function testAddPrefixAddsGivenPrefix()
+    {
+        $this->assertEquals('KeepoKappa', Str::addPrefix('Kappa', 'Keepo'));
+    }
+
+    public function testAddPrefixDoesNotAddPrefixIfStringIsAlreadyPrefixed()
+    {
+        $this->assertEquals('KeepoKappa', Str::addPrefix('KeepoKappa', 'Keepo'));
+    }
+
+    public function testAddSuffixAddsGivenSuffix()
+    {
+        $this->assertEquals('KappaKeepo', Str::addSuffix('Kappa', 'Keepo'));
+    }
+
+    public function testAddSuffixDoesNotAddSuffixIfStringIsAlreadySuffixed()
+    {
+        $this->assertEquals('KappaKeepo', Str::addSuffix('KappaKeepo', 'Keepo'));
+    }
+
+    public function testRemoveLeadingRemovesLeadingSequences()
+    {
+        $this->assertEquals('Baz', Str::removeLeading('FooBarBaz', 'Bar', 'Foo'));
+    }
+
+    public function testRemoveTrailingRemovesTrailingCharacters()
+    {
+        $this->assertEquals('Foo', Str::removeTrailing('FooBarBaz', 'Bar', 'Baz'));
+    }
+} 

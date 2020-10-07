@@ -391,4 +391,64 @@ class Str
     {
         return static::NUMBERS;
     }
+
+    /**
+     * Prepend a given prefix to string. Prefix is not prepended if the given
+     * subject already has that prefix.
+     *
+     */
+    public static function addPrefix(string $subject, string $prefix)
+    {
+        if(! static::startsWith($subject, $prefix)) {
+            $subject = $prefix . $subject;
+        }
+
+        return $subject;
+    }
+
+    /**
+     * Append a given suffix to string. Suffix is not appended if the given
+     * subject already has that suffix.
+     *
+     */
+    public static function addSuffix(string $subject, string $suffix)
+    {
+        if(! static::endsWith($subject, $suffix)) {
+            $subject .= $suffix;
+        }
+
+        return $subject;
+    } 
+
+    /**
+     * Remove all specified sequences from the beginning of the subject
+     *
+     */
+    public static function removeLeading(string $subject, string ...$strings) : string
+    {
+        while(static::startsWith($subject, ...$strings)) {
+
+            foreach($strings as $prefix) {
+                $subject = static::removePrefix($subject, $prefix);
+            }
+        }
+
+        return $subject;
+    }
+
+    /**
+     * Remove all specified sequences from the end of the subject
+     *
+     */
+    public static function removeTrailing(string $subject, string ...$strings) : string
+    {
+        while(static::endsWith($subject, ...$strings)) {
+
+            foreach($strings as $prefix) {
+                $subject = static::removeSuffix($subject, $prefix);
+            }
+        }
+
+        return $subject;
+    }
 }
