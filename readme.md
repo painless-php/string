@@ -14,6 +14,5 @@ String manipuklation classes for php
 
 ## TODO
 
-* get template classes from helpers
 * Str::trimLines()
 * Str::editLines();
