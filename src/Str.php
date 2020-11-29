@@ -332,7 +332,7 @@ class Str
         }
 
         if(is_string($characters)) {
-            $characters = str_split($characters);
+            $characters = mb_str_split($characters);
         }
 
         if(! is_array($characters)) {
