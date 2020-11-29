@@ -10,7 +10,8 @@
         "phpunit/phpunit": "^9.1",
         "spatie/phpunit-watcher": "^1.22",
         "vlucas/phpdotenv": "^4.1",
-        "nonetallt/markdown-documentation": "dev-master"
+        "nonetallt/markdown-documentation": "dev-master",
+        "phpbench/phpbench": "^0.17.1"
     },
     "autoload": {
         "psr-4": {
