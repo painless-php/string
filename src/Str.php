@@ -4,6 +4,7 @@ namespace Nonetallt\String;
 
 use Nonetallt\String\Exception\TypeConversionException;
 use Nonetallt\String\Conversion\TypeConversionMapping;
+use Nonetallt\String\Contract\TypeConverterInterface;
 
 class Str
 {
@@ -106,6 +107,8 @@ class Str
     /**
      * Explode string with multiple delimiters
      *
+     * @return array<string>
+     *
      */
     public static function explodeMultiple(string $subject, string ...$delimiters) : array
     {
@@ -122,7 +125,7 @@ class Str
 
 
     /**
-     * Remove repeating occurences of character within subject string 
+     * Remove repeating occurences of character within subject string
      *
      */
     public static function removeRecurring(string $subject, string $character) : string
@@ -130,7 +133,7 @@ class Str
         if(mb_strlen($character) !== 1) {
             $message = "Given character must be a string with a length of 1 character. '$character' given.";
             throw new \InvalidArgumentException($message) ;
-        } 
+        }
 
         $indexesToRemove = [];
         $lastChar = '';
@@ -142,8 +145,8 @@ class Str
         }
 
         foreach($indexesToRemove as $index => $pos) {
-            /* Index equals the number of indexes removed, 
-                adjust position by the amount of characters that were removed 
+            /* Index equals the number of indexes removed,
+                adjust position by the amount of characters that were removed
              */
             $subject = substr_replace($subject, '', $pos - $index, 1);
         }
@@ -225,11 +228,13 @@ class Str
     /**
      * Check if the given value can be cast to string
      *
+     * @param mixed $value
+     *
      */
     public static function isConvertable($value) : bool
     {
-        return is_null($value) || 
-            is_scalar($value) || 
+        return is_null($value) ||
+            is_scalar($value) ||
             (is_object($value) && method_exists($value, '__toString'));
     }
 
@@ -274,7 +279,7 @@ class Str
 
         $interface = TypeConverterInterface::class;
 
-        if(class_implements($converter, $interface)) {
+        if(in_array($interface, class_implements($converter))) {
             return $converter->convert($value);
         }
 
@@ -397,7 +402,7 @@ class Str
      * subject already has that prefix.
      *
      */
-    public static function addPrefix(string $subject, string $prefix)
+    public static function addPrefix(string $subject, string $prefix) : string
     {
         if(! static::startsWith($subject, $prefix)) {
             $subject = $prefix . $subject;
@@ -411,14 +416,14 @@ class Str
      * subject already has that suffix.
      *
      */
-    public static function addSuffix(string $subject, string $suffix)
+    public static function addSuffix(string $subject, string $suffix) : string
     {
         if(! static::endsWith($subject, $suffix)) {
             $subject .= $suffix;
         }
 
         return $subject;
-    } 
+    }
 
     /**
      * Remove all specified sequences from the beginning of the subject
