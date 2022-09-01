@@ -464,4 +464,44 @@ class Str
 
         return $subject;
     }
+
+    /**
+     * Convert a given string into snake case.
+     *
+     */
+    public static function toSnakeCase(string $subject, array $convertedCharacters = ['-']) : string
+    {
+        $str = '';
+
+        foreach(str_split($subject) as $index => $char) {
+
+            if($index !== 0 && $index < strlen($subject) - 1 && (ctype_upper($char) || in_array($char, $convertedCharacters))) {
+                $str .= '_';
+            }
+
+            $str .= $char;
+        }
+
+        return strtolower($str);
+    }
+
+    /**
+     * Convert a given string into kebab case.
+     *
+     */
+    public static function toKebabCase(string $subject, array $convertedCharacters = ['_']) : string
+    {
+        $str = '';
+
+        foreach(str_split($subject) as $index => $char) {
+
+            if($index !== 0 && $index < strlen($subject) - 1 && (ctype_upper($char) || in_array($char, $convertedCharacters))) {
+                $str .= '-';
+            }
+
+            $str .= $char;
+        }
+
+        return strtolower($str);
+    }
 }

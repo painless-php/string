@@ -205,4 +205,34 @@ class StrTest extends TestCase
     {
         $this->assertEquals('Foo', Str::removeTrailing('FooBarBaz', 'Bar', 'Baz'));
     }
-} 
+
+    public function testToSnakeCaseConvertsPascalCaseToSnakeCase()
+    {
+        $this->assertEquals('product_filter', Str::toSnakeCase('ProductFilter'));
+    }
+
+    public function testToSnakeCaseConvertsCamelCaseToSnakeCase()
+    {
+        $this->assertEquals('product_filter', Str::toSnakeCase('productFilter'));
+    }
+
+    public function testToSnakeCaseDoesNotAddUnderscoreAfterFirstOrLastCharacter()
+    {
+        $this->assertEquals('product_filter', Str::toSnakeCase('ProductFilteR'));
+    }
+
+    public function testToKebabCaseConvertsPascalCaseToKebabCase()
+    {
+        $this->assertEquals('product-filter', Str::toKebabCase('ProductFilter'));
+    }
+
+    public function testToKebabCaseConvertsCamelCaseToKebabCase()
+    {
+        $this->assertEquals('product-filter', Str::toKebabCase('productFilter'));
+    }
+
+    public function testToKebabCaseDoesNotAddUnderscoreAfterFirstOrLastCharacter()
+    {
+        $this->assertEquals('product-filter', Str::toKebabCase('ProductFilteR'));
+    }
+}

@@ -162,4 +162,17 @@ public static function startsWith(string $subject, string ...$starts) : bool;
 *
 */
 public static function startsWithWhitespace(string $subject) : bool;
+
+/**
+ * Convert a given string into snake case.
+ *
+ */
+public static function toSnakeCase(string $subject, array $convertedCharacters = ['-']) : string;
+
+
+/**
+ * Convert a given string into kebab case.
+ *
+ */
+public static function toKebabCase(string $subject, array $convertedCharacters = ['-']) : string;
 ```
