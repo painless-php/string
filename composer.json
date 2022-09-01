@@ -10,8 +10,7 @@
         "phpunit/phpunit": "^9.1",
         "spatie/phpunit-watcher": "^1.22",
         "vlucas/phpdotenv": "^4.1",
-        "nonetallt/markdown-documentation": "dev-master",
-        "phpbench/phpbench": "^0.17.1"
+        "phpbench/phpbench": "^1.2"
     },
     "autoload": {
         "psr-4": {
@@ -24,11 +23,5 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packages.nanu.systems"
-        }
-    ]
+    "prefer-stable": true
 }
