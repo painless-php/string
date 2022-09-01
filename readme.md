@@ -1,6 +1,6 @@
 # string
 
-String manipuklation classes for php
+String manipulation classes for php
 
 ## Public API
 
@@ -20,4 +20,4 @@ String manipuklation classes for php
 ## Release ^2.0.0 milestones
 
 * Require php 8
-* use php 8 functions (starts_with, ends_with, contains) 
+* use php 8 functions (starts_with, ends_with, contains)
