@@ -3,7 +3,7 @@
 namespace Test\Benchmark;
 
 /**
- * @Revs(100000)
+ * @Revs(100)
  * @Iterations(3)
  * @BeforeMethods({"init"})
  *
@@ -11,13 +11,13 @@ namespace Test\Benchmark;
  * or the implode function
  *
  */
-class StringConcatenationTest
+class StringConcatenationBench
 {
     private $chars;
 
     public function init()
     {
-        $this->chars = str_repeat('a', 10000);
+        $this->chars = array_fill(0 , 100000, 'a');
     }
 
     public function benchConcatenationOperation()
@@ -30,17 +30,6 @@ class StringConcatenationTest
 
     public function benchImplode()
     {
-        $result = $this->chars;
-        implode($result);
-    }
-
-    public function benchImplodeFromArray()
-    {
-        $result = [];
-        foreach($this->chars as $char) {
-            $result[] = $char;
-        }
-
-        implode($result);
+        implode('', $this->chars);
     }
 }
