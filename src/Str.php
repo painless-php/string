@@ -101,7 +101,7 @@ class Str
     {
         if(mb_strlen($character) !== 1) {
             $message = "Given character must be a string with a length of 1 character. '$character' given.";
-            throw new \InvalidArgumentException($message) ;
+            throw new InvalidArgumentException($message) ;
         }
 
         $indexesToRemove = [];
