@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Unit;
+namespace Test\Unit\Conversion;
 
 use PHPUnit\Framework\TestCase;
 use PainlessPHP\String\Conversion\StringToIntegerTypeConverter;
@@ -11,17 +11,16 @@ class StringToIntegerTypeConverterTest extends TestCase
 
     public function setUp() : void
     {
-        parent::setUp();
         $this->converter = new StringToIntegerTypeConverter;
     }
 
     public function testCanConvertIntegerString()
     {
-        $this->assertEquals(10, $this->converter->convert('10'));
+        $this->assertSame(10, $this->converter->convert('10'));
     }
 
     public function testCanConvertFloatString()
     {
-        $this->assertEquals(10, $this->converter->convert('10.2'));
+        $this->assertSame(10, $this->converter->convert('10.2'));
     }
 }

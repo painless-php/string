@@ -21,12 +21,12 @@ class StrBuilder
 
     public function __call(string $name, array $arguments)
     {
-        if(! in_array($name, array_keys(self::getCallableStrMethods()))) {
+        if(!array_key_exists($name, self::getCallableStrMethods())) {
             $msg = "Method '$name' does not exist.";
             throw new InvalidArgumentException($msg);
         }
 
-        if(! in_array($name, array_keys(self::getStrMethodsWithSubject()))) {
+        if(!array_key_exists($name, self::getStrMethodsWithSubject())) {
             $msg = "Method '$name' cannot be invoked dynamically.";
             throw new InvalidArgumentException($msg);
         }
@@ -42,7 +42,7 @@ class StrBuilder
 
     public static function __callStatic(string $name, array $arguments)
     {
-        if(! in_array($name, array_keys(self::getCallableStrMethods()))) {
+        if(!array_key_exists($name, self::getCallableStrMethods())) {
             $msg = "Method '$name' does not exist.";
             throw new InvalidArgumentException($msg);
         }
@@ -81,11 +81,11 @@ class StrBuilder
     private static function loadCallableStrMethods() : array
     {
         $classReflection = new ReflectionClass(Str::class);
-        $methods = $classReflection->getMethods();
+        $reflectionMethods = $classReflection->getMethods();
 
         $methods = [];
 
-        foreach($classReflection->getMethods() as $reflectionMethod) {
+        foreach($reflectionMethods as $reflectionMethod) {
             if(! $reflectionMethod->isStatic() || ! $reflectionMethod->isPublic()) {
                 continue;
             }

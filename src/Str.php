@@ -17,7 +17,9 @@ class Str
     public static function startsWith(string $subject, string ...$starts) : bool
     {
         foreach($starts as $start) {
-            if(str_starts_with($subject, $start)) return true;
+            if(str_starts_with($subject, $start)) {
+                return true;
+            }
         }
 
         return false;
@@ -30,7 +32,9 @@ class Str
     public static function endsWith(string $subject, string ...$ends) : bool
     {
         foreach($ends as $end) {
-            if(str_ends_with($subject, $end)) return true;
+            if(str_ends_with($subject, $end)) {
+                return true;
+            }
         }
 
         return false;
@@ -101,15 +105,18 @@ class Str
     {
         if(mb_strlen($character) !== 1) {
             $message = "Given character must be a string with a length of 1 character. '$character' given.";
-            throw new \InvalidArgumentException($message) ;
+            throw new InvalidArgumentException($message) ;
         }
 
         $indexesToRemove = [];
         $lastChar = '';
 
-        for($n = 0; $n < mb_strlen($subject); $n++) {
+        $subjectLength = mb_strlen($subject);
+        for($n = 0; $n < $subjectLength; $n++) {
             $currentChar = mb_substr($subject, $n, 1);
-            if($currentChar === $lastChar && $currentChar === $character) $indexesToRemove[] = $n -1;
+            if($currentChar === $lastChar && $currentChar === $character) {
+                $indexesToRemove[] = $n - 1;
+            }
             $lastChar = $currentChar;
         }
 
@@ -130,7 +137,9 @@ class Str
      */
     public static function splice(string &$subject, int $start, int $length = null) : string
     {
-        if(is_null($length)) $length = mb_strlen($subject);
+        if($length === null) {
+            $length = mb_strlen($subject);
+        }
 
         $result = mb_substr($subject, $start, $length);
         $subject =  mb_substr($subject, 0, $start) . mb_substr($subject, $start + $length);
@@ -147,7 +156,9 @@ class Str
         $pos = mb_strpos($subject, $after);
 
         /* Return subject string if after is not found */
-        if($pos === false) return $subject;
+        if($pos === false) {
+            return $subject;
+        }
 
         return mb_substr($subject, $pos + mb_strlen($after));
     }
@@ -162,7 +173,9 @@ class Str
         $pos = mb_strpos($subject, $before);
 
         /* Return subject string if after is not found */
-        if($pos === false) return $subject;
+        if($pos === false) {
+            return $subject;
+        }
 
         return mb_substr($subject, 0, $pos);
     }
@@ -173,7 +186,7 @@ class Str
      */
     public static function contains(string $subject, string $another) : bool
     {
-        return mb_strpos($subject, $another) !== false;
+        return str_contains($subject, $another);
     }
 
     /**
@@ -184,11 +197,14 @@ class Str
     {
         $diff = [];
 
-        for($n = 0; $n < mb_strlen($subject); $n++) {
+        $subjectLength = mb_strlen($subject);
+        for($n = 0; $n < $subjectLength; $n++) {
             $s1 = mb_substr($subject, $n, 1);
             $s2 = mb_substr($another, $n, 1);
 
-            if($s1 !== $s2) $diff[$n] = "'$s1' !== '$s2'";
+            if($s1 !== $s2) {
+                $diff[$n] = "'$s1' !== '$s2'";
+            }
         }
 
         return $diff;
@@ -202,7 +218,7 @@ class Str
      */
     public static function isConvertable($value) : bool
     {
-        return is_null($value) ||
+        return $value === null ||
             is_scalar($value) ||
             (is_object($value) && method_exists($value, '__toString'));
     }
@@ -216,7 +232,7 @@ class Str
     public static function convertFrom($value) : string
     {
         if(! static::isConvertable($value)) {
-            $type = is_object($value) ? get_class($value) : gettype($value);
+            $type = get_debug_type($value);
             $msg = "Given value of type $type is not str convertable";
             throw new StringTypeConversionException($msg);
         }
@@ -267,7 +283,7 @@ class Str
             return $value ? 'true' : 'false';
         }
 
-        if(is_null($value)) {
+        if($value === null) {
             return 'null';
         }
 
@@ -491,7 +507,7 @@ class Str
     {
         foreach(preg_split('|\s+|', $subject) as $word) {
 
-            if(Str::contains($word, $search)) {
+            if(self::contains($word, $search)) {
                 return $word;
             }
         }
@@ -509,7 +525,7 @@ class Str
         $result = [];
 
         foreach(preg_split('/\s+/', $subject) as $word) {
-            if(Str::contains($word, $search)) {
+            if(self::contains($word, $search)) {
                 $result[] = $word;
             }
         }

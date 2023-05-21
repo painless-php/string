@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Unit;
+namespace Test\Unit\Conversion;
 
 use PHPUnit\Framework\TestCase;
 use PainlessPHP\String\Conversion\StringToBooleanTypeConverter;
@@ -11,7 +11,6 @@ class StringToBooleanTypeConverterTest extends TestCase
 
     public function setUp() : void
     {
-        parent::setUp();
         $this->converter = new StringToBooleanTypeConverter;
     }
 
