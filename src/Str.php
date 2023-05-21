@@ -185,7 +185,7 @@ class Str
      */
     public static function contains(string $subject, string $another) : bool
     {
-        return mb_strpos($subject, $another) !== false;
+        return str_contains($subject, $another);
     }
 
     /**
