@@ -264,7 +264,7 @@ class Str
     public static function describe($value) : string
     {
         if(is_bool($value)) {
-            return $value ? 'true' : false;
+            return $value ? 'true' : 'false';
         }
 
         if(is_null($value)) {
@@ -329,7 +329,7 @@ class Str
      * Get all characters in the latin alphabet
      *
      */
-    public static function latinAlphabet(bool $includeUpper = true) : array
+    public static function latinAlphabet(bool $includeUpper = false) : array
     {
         $characters = range('a', 'z');
 
@@ -344,7 +344,7 @@ class Str
      * Get an array containing alphanumeric characters
      *
      */
-    public static function alphanumeric(bool $includeUpper = true, array $characters = null) : array
+    public static function alphanumeric(bool $includeUpper = false, array $characters = null) : array
     {
         if($characters === null) {
             $characters = static::latinAlphabet($includeUpper);
@@ -459,5 +459,21 @@ class Str
         }
 
         return strtolower($str);
+    }
+
+    /**
+     * Get all characters in the string as an array
+     *
+     */
+    public static function characters(string $subject, bool $unique = false) : array
+    {
+        $characters = str_split($subject);
+
+        if($unique) {
+            // Do not preserve keys for filtered result
+            $characters = array_values(array_unique($characters));
+        }
+
+        return $characters;
     }
 }
