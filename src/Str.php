@@ -130,7 +130,7 @@ class Str
      */
     public static function splice(string &$subject, int $start, int $length = null) : string
     {
-        if(is_null($length)) $length = mb_strlen($subject);
+        if($length === null) $length = mb_strlen($subject);
 
         $result = mb_substr($subject, $start, $length);
         $subject =  mb_substr($subject, 0, $start) . mb_substr($subject, $start + $length);
@@ -202,7 +202,7 @@ class Str
      */
     public static function isConvertable($value) : bool
     {
-        return is_null($value) ||
+        return $value === null ||
             is_scalar($value) ||
             (is_object($value) && method_exists($value, '__toString'));
     }
@@ -267,7 +267,7 @@ class Str
             return $value ? 'true' : 'false';
         }
 
-        if(is_null($value)) {
+        if($value === null) {
             return 'null';
         }
 
@@ -491,7 +491,7 @@ class Str
     {
         foreach(preg_split('|\s+|', $subject) as $word) {
 
-            if(Str::contains($word, $search)) {
+            if(self::contains($word, $search)) {
                 return $word;
             }
         }
@@ -509,7 +509,7 @@ class Str
         $result = [];
 
         foreach(preg_split('/\s+/', $subject) as $word) {
-            if(Str::contains($word, $search)) {
+            if(self::contains($word, $search)) {
                 $result[] = $word;
             }
         }
