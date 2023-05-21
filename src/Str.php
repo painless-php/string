@@ -8,8 +8,6 @@ use PainlessPHP\String\Contract\TypeConverterInterface;
 
 class Str
 {
-    CONST NUMBERS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-
     CONST LATIN_ALPHABET = [
         'a',
         'b',
@@ -385,16 +383,7 @@ class Str
             $characters = static::latinAlphabet($includeUpper);
         }
 
-        return array_merge($characters, static::numbers());
-    }
-
-    /**
-     * Get all numeric characters
-     *
-     */
-    public static function numbers() : array
-    {
-        return static::NUMBERS;
+        return array_merge($characters, range(0, 9));
     }
 
     /**

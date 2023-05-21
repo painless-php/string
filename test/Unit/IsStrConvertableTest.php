@@ -3,7 +3,7 @@
 namespace Test\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Nonetallt\String\Str;
+use PainlessPHP\String\Str;
 
 class IsStrConvertableTest extends TestCase
 {
@@ -58,4 +58,3 @@ class IsStrConvertableTest extends TestCase
         $this->assertFalse(Str::isConvertable($this));
     }
 }
-

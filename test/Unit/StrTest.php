@@ -3,8 +3,8 @@
 namespace Test\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Nonetallt\String\Str;
-use Nonetallt\String\Exception\TypeConversionException;
+use PainlessPHP\String\Str;
+use PainlessPHP\String\Exception\TypeConversionException;
 
 class StrTest extends TestCase
 {

@@ -3,7 +3,7 @@
 namespace Test\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Nonetallt\String\Conversion\BooleanTypeConverter;
+use PainlessPHP\String\Conversion\BooleanTypeConverter;
 
 class BooleanTypeConverterTest extends TestCase
 {
@@ -35,4 +35,3 @@ class BooleanTypeConverterTest extends TestCase
         $this->assertFalse($this->converter->convert('0'));
     }
 }
-

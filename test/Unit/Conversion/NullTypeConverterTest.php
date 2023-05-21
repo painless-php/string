@@ -3,7 +3,7 @@
 namespace Test\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Nonetallt\String\Conversion\NullTypeConverter;
+use PainlessPHP\String\Conversion\NullTypeConverter;
 
 class NullTypeConverterTest extends TestCase
 {
@@ -25,4 +25,3 @@ class NullTypeConverterTest extends TestCase
         $this->assertNull($this->converter->convert(''));
     }
 }
-

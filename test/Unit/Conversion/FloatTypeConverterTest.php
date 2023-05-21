@@ -3,7 +3,7 @@
 namespace Test\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Nonetallt\String\Conversion\FloatTypeConverter;
+use PainlessPHP\String\Conversion\FloatTypeConverter;
 
 class FloatTypeConverterTest extends TestCase
 {
@@ -25,4 +25,3 @@ class FloatTypeConverterTest extends TestCase
         $this->assertEquals(10.2, $this->converter->convert('10.2'));
     }
 }
-

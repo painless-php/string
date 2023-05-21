@@ -3,7 +3,7 @@
 namespace Test\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Nonetallt\String\Conversion\IntegerTypeConverter;
+use PainlessPHP\String\Conversion\IntegerTypeConverter;
 
 class IntegerTypeConverterTest extends TestCase
 {
@@ -25,4 +25,3 @@ class IntegerTypeConverterTest extends TestCase
         $this->assertEquals(10, $this->converter->convert('10.2'));
     }
 }
-
