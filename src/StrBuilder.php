@@ -81,11 +81,11 @@ class StrBuilder
     private static function loadCallableStrMethods() : array
     {
         $classReflection = new ReflectionClass(Str::class);
-        $methods = $classReflection->getMethods();
+        $reflectionMethods = $classReflection->getMethods();
 
         $methods = [];
 
-        foreach($classReflection->getMethods() as $reflectionMethod) {
+        foreach($reflectionMethods as $reflectionMethod) {
             if(! $reflectionMethod->isStatic() || ! $reflectionMethod->isPublic()) {
                 continue;
             }
