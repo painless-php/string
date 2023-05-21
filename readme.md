@@ -16,9 +16,7 @@ String helper functionality for PHP
 
 ## TODO
 
-* afterFirst (rename after)
 * afterLast
-* beforeFirst (rename before)
 * beforeLast
 * suffix and prefix "once" parameter?
 * trimLines

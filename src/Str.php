@@ -142,7 +142,7 @@ class Str
      * Get the part of string after first occurence of another string
      *
      */
-    public static function after(string $subject, string $after) : string
+    public static function afterFirst(string $subject, string $after) : string
     {
         $pos = mb_strpos($subject, $after);
 
@@ -157,7 +157,7 @@ class Str
      * Get the part of string before first occurence of another string
      *
      */
-    public static function before(string $subject, string $before) : string
+    public static function beforeFirst(string $subject, string $before) : string
     {
         $pos = mb_strpos($subject, $before);
 

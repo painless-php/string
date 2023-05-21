@@ -100,20 +100,20 @@ class StrTest extends TestCase
         $this->assertEquals('123456789123456789', $str);
     }
 
-    public function testStrAfterReturnStringAfterSpecifiedString()
+    public function testStrAfterFirstReturnStringAfterSpecifiedString()
     {
         $delimiter = "[something]";
         $subject = "before{$delimiter}after";
 
-        $this->assertEquals('after', Str::after($subject, $delimiter));
+        $this->assertEquals('after', Str::afterFirst($subject, $delimiter));
     }
 
-    public function testStrBeforeReturnStringBeforeSpecifiedString()
+    public function testStrBeforeFirstReturnStringBeforeSpecifiedString()
     {
         $delimiter = "[something]";
         $subject = "before{$delimiter}after";
 
-        $this->assertEquals('before', str::before($subject, $delimiter));
+        $this->assertEquals('before', str::beforeFirst($subject, $delimiter));
     }
 
     public function testContainsReturnsTrueWhenSubjectContainsTarget()
