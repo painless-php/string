@@ -295,7 +295,7 @@ class Str
      * Generates a cryptographically secure random string
      *
      */
-    public static function random(int $length, $characters = null) : string
+    public static function random(int $length, array|string $characters = null) : string
     {
         if($length < 1) {
             $msg = 'length must be at least 1';
@@ -345,10 +345,14 @@ class Str
      * Get an array containing alphanumeric characters
      *
      */
-    public static function alphanumeric(bool $includeUpper = false, array $characters = null) : array
+    public static function alphanumeric(bool $includeUpper = false, array|string $characters = null) : array
     {
         if($characters === null) {
             $characters = static::latinAlphabet($includeUpper);
+        }
+
+        if(is_string($characters)) {
+            $characters = mb_str_split($characters);
         }
 
         return array_merge($characters, range(0, 9));
