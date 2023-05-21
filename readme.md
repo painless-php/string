@@ -6,7 +6,8 @@ String helper functionality for PHP
 
 #### Core
 
-* [Str](docs/Str.md)
+* [Str](doc/Str.md)
+* [StrBuilder](doc/StrBuilder.md)
 
 #### Exception
 
