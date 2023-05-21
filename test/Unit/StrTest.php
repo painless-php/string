@@ -58,46 +58,46 @@ class StrTest extends TestCase
 
     public function testStrRemoveRecurring()
     {
-        $this->assertEquals('te heae me aaa', Str::removeRecurring('tee heaee meee aaa', 'e'));
+        $this->assertSame('te heae me aaa', Str::removeRecurring('tee heaee meee aaa', 'e'));
     }
 
     public function testStrSpliceReturnsRemoveString()
     {
         $str = '0123456';
-        $this->assertEquals('1234', Str::splice($str, 1, 4));
+        $this->assertSame('1234', Str::splice($str, 1, 4));
     }
 
     public function testStrSpliceRemovesSplicedPartFromString()
     {
         $str = '0123456';
         Str::splice($str, 1, 4);
-        $this->assertEquals('056', $str);
+        $this->assertSame('056', $str);
     }
 
     public function testStrSpliceCanBeUsedWithoutThirdArgument()
     {
         $str = '0123456';
-        $this->assertEquals('123456', Str::splice($str, 1));
+        $this->assertSame('123456', Str::splice($str, 1));
     }
 
     public function testStrSpliceModifiesSubjectCorrectlyWithoutThridArgument()
     {
         $str = '0123456';
         Str::splice($str, 2);
-        $this->assertEquals('01', $str);
+        $this->assertSame('01', $str);
     }
 
     public function testStrSliceReturnsCorrectStringOnComplexString()
     {
         $str = '123456789Kappa123456789';
-        $this->assertEquals('Kappa', Str::splice($str, 9, 5));
+        $this->assertSame('Kappa', Str::splice($str, 9, 5));
     }
 
     public function testStrSliceModifiesSubjectCorrectlyOnComplexString()
     {
         $str = '123456789Kappa123456789';
         Str::splice($str, 9, 5);
-        $this->assertEquals('123456789123456789', $str);
+        $this->assertSame('123456789123456789', $str);
     }
 
     public function testStrAfterFirstReturnStringAfterSpecifiedString()
@@ -105,7 +105,7 @@ class StrTest extends TestCase
         $delimiter = "[something]";
         $subject = "before{$delimiter}after";
 
-        $this->assertEquals('after', Str::afterFirst($subject, $delimiter));
+        $this->assertSame('after', Str::afterFirst($subject, $delimiter));
     }
 
     public function testStrBeforeFirstReturnStringBeforeSpecifiedString()
@@ -113,7 +113,7 @@ class StrTest extends TestCase
         $delimiter = "[something]";
         $subject = "before{$delimiter}after";
 
-        $this->assertEquals('before', str::beforeFirst($subject, $delimiter));
+        $this->assertSame('before', str::beforeFirst($subject, $delimiter));
     }
 
     public function testContainsReturnsTrueWhenSubjectContainsTarget()
@@ -128,7 +128,7 @@ class StrTest extends TestCase
 
     public function testRandomReturnsStringOfSpecifiedLength()
     {
-        $this->assertEquals(50, strlen(Str::random(50, 'abc')));
+        $this->assertSame(50, strlen(Str::random(50, 'abc')));
     }
 
     public function testRandomContainsOnlySpecifiedCharacters()
@@ -143,12 +143,12 @@ class StrTest extends TestCase
 
     public function testRandomReturnsSequenceOfSingleCharacterIfCharactersContainOnly1Character()
     {
-        $this->assertEquals('55555', Str::random(5, '5'));
+        $this->assertSame('55555', Str::random(5, '5'));
     }
 
     public function testRandomWorksWithoutSecondArg()
     {
-        $this->assertEquals(10, strlen(Str::random(10)));
+        $this->assertSame(10, strlen(Str::random(10)));
     }
 
     public function testConvertToFindsConverterByMappingName()
@@ -169,78 +169,78 @@ class StrTest extends TestCase
 
     public function testRemovePrefixRemovesLeadingPrefix()
     {
-        $this->assertEquals('Keepo', Str::removePrefix('KappaKeepo', 'Kappa'));
+        $this->assertSame('Keepo', Str::removePrefix('KappaKeepo', 'Kappa'));
     }
 
     public function testRemoveSuffixRemovesTrailingSuffix()
     {
-        $this->assertEquals('Kappa', Str::removeSuffix('KappaKeepo', 'Keepo'));
+        $this->assertSame('Kappa', Str::removeSuffix('KappaKeepo', 'Keepo'));
     }
 
     public function testAddPrefixAddsGivenPrefix()
     {
-        $this->assertEquals('KeepoKappa', Str::addPrefix('Kappa', 'Keepo'));
+        $this->assertSame('KeepoKappa', Str::addPrefix('Kappa', 'Keepo'));
     }
 
     public function testAddPrefixDoesNotAddPrefixIfStringIsAlreadyPrefixed()
     {
-        $this->assertEquals('KeepoKappa', Str::addPrefix('KeepoKappa', 'Keepo'));
+        $this->assertSame('KeepoKappa', Str::addPrefix('KeepoKappa', 'Keepo'));
     }
 
     public function testAddSuffixAddsGivenSuffix()
     {
-        $this->assertEquals('KappaKeepo', Str::addSuffix('Kappa', 'Keepo'));
+        $this->assertSame('KappaKeepo', Str::addSuffix('Kappa', 'Keepo'));
     }
 
     public function testAddSuffixDoesNotAddSuffixIfStringIsAlreadySuffixed()
     {
-        $this->assertEquals('KappaKeepo', Str::addSuffix('KappaKeepo', 'Keepo'));
+        $this->assertSame('KappaKeepo', Str::addSuffix('KappaKeepo', 'Keepo'));
     }
 
     public function testRemoveLeadingRemovesLeadingSequences()
     {
-        $this->assertEquals('Baz', Str::removeLeading('FooBarBaz', 'Bar', 'Foo'));
+        $this->assertSame('Baz', Str::removeLeading('FooBarBaz', 'Bar', 'Foo'));
     }
 
     public function testRemoveTrailingRemovesTrailingCharacters()
     {
-        $this->assertEquals('Foo', Str::removeTrailing('FooBarBaz', 'Bar', 'Baz'));
+        $this->assertSame('Foo', Str::removeTrailing('FooBarBaz', 'Bar', 'Baz'));
     }
 
     public function testToSnakeCaseConvertsPascalCaseToSnakeCase()
     {
-        $this->assertEquals('product_filter', Str::toSnakeCase('ProductFilter'));
+        $this->assertSame('product_filter', Str::toSnakeCase('ProductFilter'));
     }
 
     public function testToSnakeCaseConvertsCamelCaseToSnakeCase()
     {
-        $this->assertEquals('product_filter', Str::toSnakeCase('productFilter'));
+        $this->assertSame('product_filter', Str::toSnakeCase('productFilter'));
     }
 
     public function testToSnakeCaseDoesNotAddUnderscoreAfterFirstOrLastCharacter()
     {
-        $this->assertEquals('product_filter', Str::toSnakeCase('ProductFilteR'));
+        $this->assertSame('product_filter', Str::toSnakeCase('ProductFilteR'));
     }
 
     public function testToKebabCaseConvertsPascalCaseToKebabCase()
     {
-        $this->assertEquals('product-filter', Str::toKebabCase('ProductFilter'));
+        $this->assertSame('product-filter', Str::toKebabCase('ProductFilter'));
     }
 
     public function testToKebabCaseConvertsCamelCaseToKebabCase()
     {
-        $this->assertEquals('product-filter', Str::toKebabCase('productFilter'));
+        $this->assertSame('product-filter', Str::toKebabCase('productFilter'));
     }
 
     public function testToKebabCaseDoesNotAddUnderscoreAfterFirstOrLastCharacter()
     {
-        $this->assertEquals('product-filter', Str::toKebabCase('ProductFilteR'));
+        $this->assertSame('product-filter', Str::toKebabCase('ProductFilteR'));
     }
 
     public function testFindFirstWordContainingReturnsTheWordContainingGivenSearch()
     {
         $subject = 'example example{placeholder}stuff {placeholder}';
-        $this->assertEquals('example{placeholder}stuff', Str::findFirstWordContaining($subject, '{placeholder}'));
+        $this->assertSame('example{placeholder}stuff', Str::findFirstWordContaining($subject, '{placeholder}'));
     }
 
     public function testFindFirstWordContainingThrowsExceptionIfSearchIsNotFound()

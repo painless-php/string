@@ -16,11 +16,11 @@ class StringToFloatTypeConverterTest extends TestCase
 
     public function testCanConvertIntegerString()
     {
-        $this->assertEquals(10.0, $this->converter->convert('10'));
+        $this->assertSame(10.0, $this->converter->convert('10'));
     }
 
     public function testCanConvertFloatString()
     {
-        $this->assertEquals(10.2, $this->converter->convert('10.2'));
+        $this->assertSame(10.2, $this->converter->convert('10.2'));
     }
 }
