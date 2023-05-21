@@ -8,7 +8,7 @@ namespace PainlessPHP\String\Conversion;
  */
 class StringTypeConversionMapping
 {
-    CONST MAPPING = [
+    public CONST MAPPING = [
         'boolean' => StringToBooleanTypeConverter::class,
         'integer' => StringToIntegerTypeConverter::class,
         'float'   => StringToFloatTypeConverter::class,
