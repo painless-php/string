@@ -111,7 +111,8 @@ class Str
         $indexesToRemove = [];
         $lastChar = '';
 
-        for($n = 0; $n < mb_strlen($subject); $n++) {
+        $subjectLength = mb_strlen($subject);
+        for($n = 0; $n < $subjectLength; $n++) {
             $currentChar = mb_substr($subject, $n, 1);
             if($currentChar === $lastChar && $currentChar === $character) {
                 $indexesToRemove[] = $n - 1;
@@ -196,7 +197,8 @@ class Str
     {
         $diff = [];
 
-        for($n = 0; $n < mb_strlen($subject); $n++) {
+        $subjectLength = mb_strlen($subject);
+        for($n = 0; $n < $subjectLength; $n++) {
             $s1 = mb_substr($subject, $n, 1);
             $s2 = mb_substr($another, $n, 1);
 
