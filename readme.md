@@ -14,20 +14,16 @@ String helper functionality for PHP
 
 ## TODO
 
-* update namespace and package name
+* method overview (as markdown table? in readme)
 
-* Str::trimLines()
-* Str::editLines();
-
-* fix describe
 * afterFirst
 * afterLast
 * beforeFirst
 * beforeLast
 * findWordContaining
-* latinAlphbet includeUpper false by default
-* use range insted of numbers
 * suffix and prefix "once" parameter?
+* trimLines
+* editLines
 
 * figure out a way to chain string methods? a new class?
 - make StringBuilder class
