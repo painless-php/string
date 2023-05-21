@@ -333,7 +333,7 @@ class Str
         $characters = range('a', 'z');
 
         if($includeUpper) {
-            $characters = [...$characters, range('A', 'Z')];
+            $characters = [...$characters, ...range('A', 'Z')];
         }
 
         return $characters;

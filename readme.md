@@ -18,8 +18,6 @@ String helper functionality for PHP
 
 * method overview (as markdown table? in readme)
 
-* fix random tests sometimes failing
-
 * afterFirst (rename after)
 * afterLast
 * beforeFirst (rename before)
