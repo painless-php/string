@@ -2,6 +2,7 @@
 
 namespace PainlessPHP\String;
 
+use InvalidArgumentException;
 use PainlessPHP\String\Exception\TypeConversionException;
 use PainlessPHP\String\Conversion\TypeConversionMapping;
 use PainlessPHP\String\Contract\TypeConverterInterface;
@@ -298,7 +299,7 @@ class Str
     {
         if($length < 1) {
             $msg = 'length must be at least 1';
-            throw new \InvalidArgumentException($msg);
+            throw new InvalidArgumentException($msg);
         }
 
         if($characters === null) {
@@ -311,7 +312,7 @@ class Str
 
         if(! is_array($characters)) {
             $msg = "characters must be either a string or an array";
-            throw new \InvalidArgumentException($msg);
+            throw new InvalidArgumentException($msg);
         }
 
         /* Last index */
