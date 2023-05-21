@@ -5,6 +5,7 @@ namespace Test\Unit;
 use PHPUnit\Framework\TestCase;
 use PainlessPHP\String\Str;
 use PainlessPHP\String\Exception\TypeConversionException;
+use PainlessPHP\String\Exception\StringSearchException;
 
 class StrTest extends TestCase
 {
@@ -234,5 +235,23 @@ class StrTest extends TestCase
     public function testToKebabCaseDoesNotAddUnderscoreAfterFirstOrLastCharacter()
     {
         $this->assertEquals('product-filter', Str::toKebabCase('ProductFilteR'));
+    }
+
+    public function testFindFirstWordContainingReturnsTheWordContainingGivenSearch()
+    {
+        $subject = 'example example{placeholder}stuff {placeholder}';
+        $this->assertEquals('example{placeholder}stuff', Str::findFirstWordContaining($subject, '{placeholder}'));
+    }
+
+    public function testFindFirstWordContainingThrowsExceptionIfSearchIsNotFound()
+    {
+        $this->expectException(StringSearchException::class);
+        Str::findFirstWordContaining('foo', 'bar');
+    }
+
+    public function testFindALlWordsContainingReturnsAllWordsContainingTheGivenSearch()
+    {
+        $subject = 'example example{placeholder}stuff {placeholder}';
+        $this->assertEquals(['example{placeholder}stuff', '{placeholder}'], Str::findAllWordsContaining($subject, '{placeholder}'));
     }
 }

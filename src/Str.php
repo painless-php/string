@@ -2,10 +2,12 @@
 
 namespace PainlessPHP\String;
 
+use Exception;
 use InvalidArgumentException;
 use PainlessPHP\String\Exception\TypeConversionException;
 use PainlessPHP\String\Conversion\TypeConversionMapping;
 use PainlessPHP\String\Contract\TypeConverterInterface;
+use PainlessPHP\String\Exception\StringSearchException;
 
 class Str
 {
@@ -478,5 +480,42 @@ class Str
         }
 
         return $characters;
+    }
+
+    /**
+     * Find the a word that contains the given search in the given string
+     *
+     * @throws StringSearchException
+     *
+     */
+    public static function findFirstWordContaining(string $subject, string $search) : string
+    {
+        foreach(preg_split('|\s+|', $subject) as $word) {
+
+            if(Str::contains($word, $search)) {
+                var_dump($word);
+                return $word;
+            }
+        }
+
+        $msg = "Could not find word containing '$search' in subject '$subject'";
+        throw new StringSearchException($msg);
+    }
+
+    /**
+     * Find all words that contains the given search in the given string
+     *
+     */
+    public static function findAllWordsContaining(string $subject, string $search) : array
+    {
+        $result = [];
+
+        foreach(preg_split('/\s+/', $subject) as $word) {
+            if(Str::contains($word, $search)) {
+                $result[] = $word;
+            }
+        }
+
+        return $result;
     }
 }
