@@ -8,35 +8,6 @@ use PainlessPHP\String\Contract\TypeConverterInterface;
 
 class Str
 {
-    CONST LATIN_ALPHABET = [
-        'a',
-        'b',
-        'c',
-        'd',
-        'e',
-        'f',
-        'g',
-        'h',
-        'i',
-        'j',
-        'k',
-        'l',
-        'm',
-        'n',
-        'o',
-        'p',
-        'q',
-        'r',
-        's',
-        't',
-        'u',
-        'v',
-        'w',
-        'x',
-        'y',
-        'z',
-    ];
-
     /**
      * Check if string starts with one of the given starts
      *
@@ -360,14 +331,10 @@ class Str
      */
     public static function latinAlphabet(bool $includeUpper = true) : array
     {
-        $characters = static::LATIN_ALPHABET;
+        $characters = range('a', 'z');
 
         if($includeUpper) {
-            $uc = [];
-            foreach($characters as $character) {
-                $uc[] = strtoupper($character);
-            }
-            $characters = array_merge($characters, $uc);
+            $characters = [...$characters, range('A', 'Z')];
         }
 
         return $characters;
