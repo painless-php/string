@@ -132,11 +132,11 @@ class StrTest extends TestCase
 
     public function testRandomContainsOnlySpecifiedCharacters()
     {
-        $chars = 'abcdefghijklmnopqrstuvwxyz';
+        $chars = range('a', 'z');
         $str = Str::random(30, $chars);
 
         foreach(str_split($str) as $char) {
-            $this->assertTrue(strpos($chars, $char) !== false);
+            $this->assertContains($char, $chars);
         }
     }
 
