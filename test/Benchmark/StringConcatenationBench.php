@@ -2,6 +2,9 @@
 
 namespace Test\Benchmark;
 
+use PhpBench\Benchmark\Metadata\Annotations\Iterations;
+use PhpBench\Benchmark\Metadata\Annotations\Revs;
+
 /**
  * @Revs(100)
  * @Iterations(3)
