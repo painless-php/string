@@ -1,4 +1,4 @@
-# Nonetallt\String\Conversion\TypeConversionMapping
+# PainlessPHP\String\Conversion\TypeConversionMapping
 
 
  Simple alias to converter mapping, not ment as part of the public API

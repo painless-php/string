@@ -1,4 +1,4 @@
-# Nonetallt\String\Exception\TypeConversionException
+# PainlessPHP\String\Exception\TypeConversionException
 
 
 
@@ -11,7 +11,7 @@ public function __toString();
 
 public function __wakeup();
 
-public static function fromConversion($value, Nonetallt\String\Contract\TypeConverterInterface $converter = null, int $code = 0, Exception $previous = null) : self;
+public static function fromConversion($value, PainlessPHP\String\Contract\TypeConverterInterface $converter = null, int $code = 0, Exception $previous = null) : self;
 
 final public function getCode();
 

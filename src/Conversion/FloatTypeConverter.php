@@ -1,9 +1,9 @@
 <?php
 
-namespace Nonetallt\String\Conversion;
+namespace PainlessPHP\String\Conversion;
 
-use Nonetallt\String\Contract\TypeConverterInterface;
-use Nonetallt\String\Exception\TypeConversionException;
+use PainlessPHP\String\Contract\TypeConverterInterface;
+use PainlessPHP\String\Exception\TypeConversionException;
 
 class FloatTypeConverter implements TypeConverterInterface
 {

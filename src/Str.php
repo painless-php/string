@@ -1,10 +1,10 @@
 <?php
 
-namespace Nonetallt\String;
+namespace PainlessPHP\String;
 
-use Nonetallt\String\Exception\TypeConversionException;
-use Nonetallt\String\Conversion\TypeConversionMapping;
-use Nonetallt\String\Contract\TypeConverterInterface;
+use PainlessPHP\String\Exception\TypeConversionException;
+use PainlessPHP\String\Conversion\TypeConversionMapping;
+use PainlessPHP\String\Contract\TypeConverterInterface;
 
 class Str
 {

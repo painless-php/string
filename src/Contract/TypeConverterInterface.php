@@ -1,8 +1,8 @@
 <?php
 
-namespace Nonetallt\String\Contract;
+namespace PainlessPHP\String\Contract;
 
-use Nonetallt\String\Exception\TypeConversionException;
+use PainlessPHP\String\Exception\TypeConversionException;
 
 /**
  * Converts strings into the given type

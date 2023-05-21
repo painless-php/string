@@ -1,8 +1,8 @@
 <?php
 
-namespace Nonetallt\String\Exception;
+namespace PainlessPHP\String\Exception;
 
-use Nonetallt\String\Contract\TypeConverterInterface;
+use PainlessPHP\String\Contract\TypeConverterInterface;
 
 class TypeConversionException extends \Exception
 {

@@ -1,6 +1,6 @@
 {
-    "name": "nonetallt/string",
-    "description": "String processing helpers",
+    "name": "painless-php/string",
+    "description": "String helper functionality for PHP",
     "type": "library",
     "require": {
         "php": ">=7.1",
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Nonetallt\\String\\": "src/"
+            "PainlessPHP\\String\\": "src/"
         }
     },
     "autoload-dev": {

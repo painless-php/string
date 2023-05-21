@@ -1,6 +1,6 @@
 <?php
 
-namespace Nonetallt\String\Conversion;
+namespace PainlessPHP\String\Conversion;
 
 /**
  * Simple alias to converter mapping, not ment as part of the public API

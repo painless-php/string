@@ -1,9 +1,9 @@
 <?php
 
-namespace Nonetallt\String\Conversion;
+namespace PainlessPHP\String\Conversion;
 
-use Nonetallt\String\Contract\TypeConverterInterface;
-use Nonetallt\String\Exception\TypeConversionException;
+use PainlessPHP\String\Contract\TypeConverterInterface;
+use PainlessPHP\String\Exception\TypeConversionException;
 
 class BooleanTypeConverter implements TypeConverterInterface
 {
@@ -11,7 +11,7 @@ class BooleanTypeConverter implements TypeConverterInterface
     {
         if($value === 'true' || $value === '1') {
             return true;
-        } 
+        }
 
         if($value === 'false' || $value === '0') {
             return false;
