@@ -28,7 +28,7 @@ class Str
      */
     public static function endsWith(string $subject, string ...$ends) : bool
     {
-        foreach($ends as $index => $end) {
+        foreach($ends as $end) {
             $subjectEnd = mb_substr($subject, mb_strlen($subject) - mb_strlen($end));
             if($subjectEnd === $end) return true;
         }
