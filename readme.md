@@ -14,10 +14,6 @@ String helper functionality for PHP
 
 ## TODO
 
-* update required php version (can check with package-boilerplate-core eventually)
-
-* method overview (as markdown table? in readme)
-
 * afterFirst (rename after)
 * afterLast
 * beforeFirst (rename before)
@@ -27,4 +23,6 @@ String helper functionality for PHP
 * trimLines
 * editLines
 
-- generate ide helper for StrBuilder so that magic methods are exposed to IDE
+* update required php version (can check with package-boilerplate-core eventually)
+* method overview (as markdown table? in readme)
+* generate ide helper for StrBuilder so that magic methods are exposed to IDE
