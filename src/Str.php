@@ -429,7 +429,7 @@ class Str
     {
         $str = '';
 
-        foreach(str_split($subject) as $index => $char) {
+        foreach(mb_str_split($subject) as $index => $char) {
 
             if($index !== 0 && $index < strlen($subject) - 1 && (ctype_upper($char) || in_array($char, $convertedCharacters))) {
                 $str .= '_';
@@ -449,7 +449,7 @@ class Str
     {
         $str = '';
 
-        foreach(str_split($subject) as $index => $char) {
+        foreach(mb_str_split($subject) as $index => $char) {
 
             if($index !== 0 && $index < strlen($subject) - 1 && (ctype_upper($char) || in_array($char, $convertedCharacters))) {
                 $str .= '-';
@@ -467,7 +467,7 @@ class Str
      */
     public static function characters(string $subject, bool $unique = false) : array
     {
-        $characters = str_split($subject);
+        $characters = mb_str_split($subject);
 
         if($unique) {
             // Do not preserve keys for filtered result
