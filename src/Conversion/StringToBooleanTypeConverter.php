@@ -2,10 +2,10 @@
 
 namespace PainlessPHP\String\Conversion;
 
-use PainlessPHP\String\Contract\TypeConverterInterface;
-use PainlessPHP\String\Exception\TypeConversionException;
+use PainlessPHP\String\Contract\StringTypeConverterInterface;
+use PainlessPHP\String\Exception\StringTypeConversionException;
 
-class BooleanTypeConverter implements TypeConverterInterface
+class StringToBooleanTypeConverter implements StringTypeConverterInterface
 {
     public function convert(string $value) : bool
     {
@@ -17,6 +17,6 @@ class BooleanTypeConverter implements TypeConverterInterface
             return false;
         }
 
-        throw TypeConversionException::fromConversion($value, $this);
+        throw StringTypeConversionException::fromConversion($value, $this);
     }
 }

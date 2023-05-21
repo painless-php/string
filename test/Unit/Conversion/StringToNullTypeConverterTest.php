@@ -3,16 +3,16 @@
 namespace Test\Unit;
 
 use PHPUnit\Framework\TestCase;
-use PainlessPHP\String\Conversion\NullTypeConverter;
+use PainlessPHP\String\Conversion\StringToNullTypeConverter;
 
-class NullTypeConverterTest extends TestCase
+class StringToNullTypeConverterTest extends TestCase
 {
     private $converter;
 
     public function setUp() : void
     {
         parent::setUp();
-        $this->converter = new NullTypeConverter;
+        $this->converter = new StringToNullTypeConverter;
     }
 
     public function testCanConvertNullString()

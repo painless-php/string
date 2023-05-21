@@ -3,16 +3,16 @@
 namespace Test\Unit;
 
 use PHPUnit\Framework\TestCase;
-use PainlessPHP\String\Conversion\IntegerTypeConverter;
+use PainlessPHP\String\Conversion\StringToIntegerTypeConverter;
 
-class IntegerTypeConverterTest extends TestCase
+class StringToIntegerTypeConverterTest extends TestCase
 {
     private $converter;
 
     public function setUp() : void
     {
         parent::setUp();
-        $this->converter = new IntegerTypeConverter;
+        $this->converter = new StringToIntegerTypeConverter;
     }
 
     public function testCanConvertIntegerString()

@@ -3,16 +3,16 @@
 namespace Test\Unit;
 
 use PHPUnit\Framework\TestCase;
-use PainlessPHP\String\Conversion\FloatTypeConverter;
+use PainlessPHP\String\Conversion\StringToFloatTypeConverter;
 
-class FloatTypeConverterTest extends TestCase
+class StringToFloatTypeConverterTest extends TestCase
 {
     private $converter;
 
     public function setUp() : void
     {
         parent::setUp();
-        $this->converter = new FloatTypeConverter;
+        $this->converter = new StringToFloatTypeConverter;
     }
 
     public function testCanConvertIntegerString()

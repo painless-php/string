@@ -2,11 +2,10 @@
 
 namespace PainlessPHP\String;
 
-use Exception;
 use InvalidArgumentException;
-use PainlessPHP\String\Exception\TypeConversionException;
-use PainlessPHP\String\Conversion\TypeConversionMapping;
-use PainlessPHP\String\Contract\TypeConverterInterface;
+use PainlessPHP\String\Exception\StringTypeConversionException;
+use PainlessPHP\String\Conversion\StringTypeConversionMapping;
+use PainlessPHP\String\Contract\StringTypeConverterInterface;
 use PainlessPHP\String\Exception\StringSearchException;
 
 class Str
@@ -211,7 +210,7 @@ class Str
     /**
      * Convert given value into string
      *
-     * @throws TypeConversionException
+     * @throws StringTypeConversionException
      *
      */
     public static function convertFrom($value) : string
@@ -219,7 +218,7 @@ class Str
         if(! static::isConvertable($value)) {
             $type = is_object($value) ? get_class($value) : gettype($value);
             $msg = "Given value of type $type is not str convertable";
-            throw new TypeConversionException($msg);
+            throw new StringTypeConversionException($msg);
         }
 
         return (string)$value;
@@ -228,7 +227,7 @@ class Str
     /**
      * Convert string into the specified type
      *
-     * @throws TypeConversionException
+     * @throws StringTypeConversionException
      *
      */
     public static function convertTo(string $value, $converter)
@@ -239,22 +238,22 @@ class Str
                 return $value;
             }
 
-            $class = TypeConversionMapping::MAPPING[$converter] ?? null;
+            $class = StringTypeConversionMapping::MAPPING[$converter] ?? null;
             if($class === null) {
                 $msg = "Converter matching alias '$converter' not found";
-                throw new TypeConversionException($msg);
+                throw new StringTypeConversionException($msg);
             }
             $converter = new $class();
         }
 
-        $interface = TypeConverterInterface::class;
+        $interface = StringTypeConverterInterface::class;
 
         if(in_array($interface, class_implements($converter))) {
             return $converter->convert($value);
         }
 
         $msg = "Converter must be either a string or an instance of $interface";
-        throw new TypeConversionException($msg);
+        throw new StringTypeConversionException($msg);
 
     }
 
@@ -493,7 +492,6 @@ class Str
         foreach(preg_split('|\s+|', $subject) as $word) {
 
             if(Str::contains($word, $search)) {
-                var_dump($word);
                 return $word;
             }
         }

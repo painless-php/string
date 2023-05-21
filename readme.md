@@ -11,7 +11,7 @@ String helper functionality for PHP
 #### Exception
 
 * PainlessPHP\String\Exception\StringSearchException
-* PainlessPHP\String\Exception\TypeConversionException
+* PainlessPHP\String\Exception\StringTypeConversionException
 
 ## TODO
 

@@ -2,18 +2,18 @@
 
 namespace PainlessPHP\String\Contract;
 
-use PainlessPHP\String\Exception\TypeConversionException;
+use PainlessPHP\String\Exception\StringTypeConversionException;
 
 /**
  * Converts strings into the given type
  *
  */
-interface TypeConverterInterface
+interface StringTypeConverterInterface
 {
     /**
      * Attempt to convert a given value
      *
-     * @throws TypeConversionException
+     * @throws StringTypeConversionException
      *
      */
     public function convert(string $value);

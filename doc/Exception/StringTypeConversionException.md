@@ -1,4 +1,4 @@
-# PainlessPHP\String\Exception\TypeConversionException
+# PainlessPHP\String\Exception\StringTypeConversionException
 
 
 

@@ -4,7 +4,7 @@ namespace Test\Unit;
 
 use PHPUnit\Framework\TestCase;
 use PainlessPHP\String\Str;
-use PainlessPHP\String\Exception\TypeConversionException;
+use PainlessPHP\String\Exception\StringTypeConversionException;
 use PainlessPHP\String\Exception\StringSearchException;
 
 class StrTest extends TestCase
@@ -156,9 +156,9 @@ class StrTest extends TestCase
         $this->assertEquals(10.2, Str::convertTo('10.2', 'float'));
     }
 
-    public function testTypeConversionExceptionIsThrownWhenConversionMappingIsNotFound()
+    public function testStringTypeConversionExceptionIsThrownWhenConversionMappingIsNotFound()
     {
-        $this->expectException(TypeConversionException::class);
+        $this->expectException(StringTypeConversionException::class);
         Str::convertTo('foo', 'kappa');
     }
 

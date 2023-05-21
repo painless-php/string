@@ -3,16 +3,16 @@
 namespace Test\Unit;
 
 use PHPUnit\Framework\TestCase;
-use PainlessPHP\String\Conversion\BooleanTypeConverter;
+use PainlessPHP\String\Conversion\StringToBooleanTypeConverter;
 
-class BooleanTypeConverterTest extends TestCase
+class StringToBooleanTypeConverterTest extends TestCase
 {
     private $converter;
 
     public function setUp() : void
     {
         parent::setUp();
-        $this->converter = new BooleanTypeConverter;
+        $this->converter = new StringToBooleanTypeConverter;
     }
 
     public function testCanConvertTrueString()
