@@ -96,12 +96,6 @@ public static function isConvertable($value) : bool;
 public static function latinAlphabet(bool $includeUpper = true) : array;
 
 /**
-* Get all numeric characters
-*
-*/
-public static function numbers() : array;
-
-/**
 * Generates a cryptographically secure random string
 *
 */
