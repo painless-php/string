@@ -230,7 +230,7 @@ class Str
     public static function convertFrom($value) : string
     {
         if(! static::isConvertable($value)) {
-            $type = is_object($value) ? get_class($value) : gettype($value);
+            $type = get_debug_type($value);
             $msg = "Given value of type $type is not str convertable";
             throw new StringTypeConversionException($msg);
         }
