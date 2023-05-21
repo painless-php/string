@@ -14,7 +14,15 @@ String helper functionality for PHP
 
 ## TODO
 
+* update required php version
+
 * method overview (as markdown table? in readme)
+
+* test bench for current startsWith vs inbuilt str_starts_with
+    * use inbuilt method if it's faster
+
+* fix random characters arg
+* fix random tests sometimes failing
 
 * afterFirst
 * afterLast
@@ -25,7 +33,4 @@ String helper functionality for PHP
 * trimLines
 * editLines
 
-* figure out a way to chain string methods? a new class?
-- make StringBuilder class
-- use __call for Str:: support calls
-- generate ide helper for Str:: so that magic methods are exposed to IDE
+- generate ide helper for StrBuilder so that magic methods are exposed to IDE
