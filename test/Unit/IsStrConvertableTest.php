@@ -40,7 +40,7 @@ class IsStrConvertableTest extends TestCase
     public function testObjectWithToStringIsConvertable()
     {
         $obj = new class{
-            function __toString() {
+            public function __toString() {
                 return 'foo';
             }
         };
