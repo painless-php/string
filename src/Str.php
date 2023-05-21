@@ -355,7 +355,7 @@ class Str
             $characters = mb_str_split($characters);
         }
 
-        return array_merge($characters, range(0, 9));
+        return [...$characters, ...range(0, 9)];
     }
 
     /**
