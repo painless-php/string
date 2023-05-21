@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Unit;
+namespace Test\Unit\Conversion;
 
 use PHPUnit\Framework\TestCase;
 use PainlessPHP\String\Conversion\StringToFloatTypeConverter;
@@ -11,7 +11,6 @@ class StringToFloatTypeConverterTest extends TestCase
 
     public function setUp() : void
     {
-        parent::setUp();
         $this->converter = new StringToFloatTypeConverter;
     }
 
