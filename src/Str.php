@@ -16,8 +16,7 @@ class Str
     public static function startsWith(string $subject, string ...$starts) : bool
     {
         foreach($starts as $start) {
-            $subjectStart = mb_substr($subject, 0, mb_strlen($start));
-            if($subjectStart === $start) return true;
+            if(str_starts_with($subject, $start)) return true;
         }
 
         return false;
@@ -30,8 +29,7 @@ class Str
     public static function endsWith(string $subject, string ...$ends) : bool
     {
         foreach($ends as $end) {
-            $subjectEnd = mb_substr($subject, mb_strlen($subject) - mb_strlen($end));
-            if($subjectEnd === $end) return true;
+            if(str_ends_with($subject, $end)) return true;
         }
 
         return false;

@@ -3,7 +3,7 @@
     "description": "String helper functionality for PHP",
     "type": "library",
     "require": {
-        "php": ">=7.1",
+        "php": ">=8.0",
         "ext-mbstring": "*"
     },
     "require-dev": {
@@ -26,6 +26,7 @@
     "prefer-stable": true,
     "scripts": {
         "test": "vendor/bin/phpunit",
-        "test-watch": "vendor/bin/phpunit-watcher watch"
+        "test-watch": "vendor/bin/phpunit-watcher watch",
+        "benchmark": "vendor/bin/phpbench run test/Benchmark"
     }
 }

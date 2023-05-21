@@ -7,7 +7,7 @@ namespace Test\Benchmark;
  * @Iterations(3)
  * @BeforeMethods({"init"})
  *
- * Test if it's faster to concatenate strings with the concatenation operator
+ * Test if it's faster to use builtin str_starts_with compared to custom implementation
  * or the implode function
  *
  */
@@ -28,7 +28,7 @@ class StringStartsWithBench
 
     }
 
-    public function benchInbuilt()
+    public function benchBuiltin()
     {
         return str_starts_with($this->subject, 'foo');
     }

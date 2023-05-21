@@ -18,9 +18,6 @@ String helper functionality for PHP
 
 * method overview (as markdown table? in readme)
 
-* test bench for current startsWith vs inbuilt str_starts_with
-    * use inbuilt method if it's faster
-
 * fix random tests sometimes failing
 
 * afterFirst (rename after)
