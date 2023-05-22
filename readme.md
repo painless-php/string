@@ -2,6 +2,12 @@
 
 String helper functionality for PHP
 
+## Installation
+
+```
+composer require painless-php/string
+```
+
 ## Public API
 
 #### Core
