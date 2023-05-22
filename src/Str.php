@@ -73,7 +73,7 @@ class Str
      */
     public static function startsWithWhitespace(string $subject) : bool
     {
-        return preg_match('|^\s+|', $subject) === 1;
+        return preg_match('|^\s|', $subject) === 1;
     }
 
 
