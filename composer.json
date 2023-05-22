@@ -1,7 +1,9 @@
 {
   "name": "painless-php/string",
-  "description": "String helper functionality for PHP",
   "type": "library",
+  "description": "String helper functionality for PHP",
+  "keywords": ["string", "helpers"],
+  "license": "MIT",
   "require": {
     "php": ">=8.1",
     "ext-mbstring": "*"
