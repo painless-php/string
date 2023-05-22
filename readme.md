@@ -24,7 +24,9 @@ composer require painless-php/string
 
 * afterLast
 * beforeLast
-* suffix and prefix "once" parameter?
+* findFirstLineContaining
+* findLinesContaining
+* findLastLineContaining
 * trimLines
 * editLines
 
