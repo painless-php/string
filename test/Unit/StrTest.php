@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use PainlessPHP\String\Str;
 use PainlessPHP\String\Exception\StringTypeConversionException;
 use PainlessPHP\String\Exception\StringSearchException;
+use PainlessPHP\String\StrBuilder;
 
 class StrTest extends TestCase
 {
@@ -253,5 +254,13 @@ class StrTest extends TestCase
     {
         $subject = 'example example{placeholder}stuff {placeholder}';
         $this->assertEquals(['example{placeholder}stuff', '{placeholder}'], Str::findAllWordsContaining($subject, '{placeholder}'));
+    }
+
+    public function testBuildReturnsStrBuilderInstance()
+    {
+        $string =  'string';
+        $builder = Str::build($string);
+        $this->assertInstanceOf(StrBuilder::class, $builder);
+        $this->assertEquals($string, $builder->string);
     }
 }

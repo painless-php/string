@@ -532,4 +532,9 @@ class Str
 
         return $result;
     }
+
+    public static function build(string $subject) : StrBuilder
+    {
+        return new StrBuilder($subject);
+    }
 }
