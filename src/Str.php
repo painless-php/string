@@ -163,6 +163,16 @@ class Str
         return mb_substr($subject, $pos + mb_strlen($after));
     }
 
+    /**
+     * Get the parto f the string after the last occurence of another string
+     *
+     */
+    public static function afterLast(string $subject, string $after) : string
+    {
+        $parts = explode($after, $subject);
+        return $parts[count($parts) - 1];
+    }
+
 
     /**
      * Get the part of string before first occurence of another string
@@ -178,6 +188,18 @@ class Str
         }
 
         return mb_substr($subject, 0, $pos);
+    }
+
+    /**
+     * Get the part of string before last occurence of another string
+     *
+     */
+    public static function beforeLast(string $subject, string $before) : string
+    {
+        $parts = explode($before, $subject);
+        unset($parts[count($parts) - 1]);
+
+        return implode($before, $parts);
     }
 
     /**

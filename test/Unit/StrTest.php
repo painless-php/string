@@ -263,4 +263,14 @@ class StrTest extends TestCase
         $this->assertInstanceOf(StrBuilder::class, $builder);
         $this->assertEquals($string, $builder->string);
     }
+
+    public function testAfterLastReturnsStringAfterLastInstance()
+    {
+        $this->assertSame('Validation', Str::afterLast('TestControllerTestValidation', 'Test'));;
+    }
+
+    public function testBeforeLastReturnsStringBeforeLastInstance()
+    {
+        $this->assertSame('TestController', Str::beforeLast('TestControllerTestValidation', 'Test'));;
+    }
 }

@@ -22,8 +22,6 @@ composer require painless-php/string
 
 ## TODO
 
-* afterLast
-* beforeLast
 * findFirstLineContaining
 * findLinesContaining
 * findLastLineContaining
