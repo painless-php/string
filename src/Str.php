@@ -559,4 +559,9 @@ class Str
     {
         return new StrBuilder($subject);
     }
+
+    public static function replace(string $subject, string $search, string $replace)
+    {
+        return str_replace($search, $replace, $subject);
+    }
 }

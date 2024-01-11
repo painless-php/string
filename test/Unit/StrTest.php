@@ -273,4 +273,9 @@ class StrTest extends TestCase
     {
         $this->assertSame('TestController', Str::beforeLast('TestControllerTestValidation', 'Test'));;
     }
+
+    public function testReplaceReplacesSearchInstance()
+    {
+        $this->assertSame('Hello Test', Str::replace('Hello World', 'World', 'Test'));;
+    }
 }
