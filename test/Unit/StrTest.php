@@ -278,4 +278,14 @@ class StrTest extends TestCase
     {
         $this->assertSame('foo baz baz', Str::replaceAll('foo bar bar', 'bar', 'baz'));;
     }
+
+    public function testReplaceAllArrayReplacesSearchInstances()
+    {
+        $replacements = [
+            '{{foo}}' => 'value1',
+            '{{bar}}' => 'value2'
+        ];
+
+        $this->assertSame('foo=value1&bar=value2', Str::replaceAllArray('foo={{foo}}&bar={{bar}}', $replacements));;
+    }
 }

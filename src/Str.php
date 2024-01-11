@@ -560,8 +560,22 @@ class Str
         return new StrBuilder($subject);
     }
 
-    public static function replaceAll(string $subject, string $search, string $replace)
+    public static function replaceAll(string $subject, string $search, string $replace) : string
     {
         return str_replace($search, $replace, $subject);
+    }
+
+    /**
+     * @param string $subject
+     * @param array<string,string> $replacements
+     * @return string
+     */
+    public static function replaceAllArray(string $subject, array $replacements) : string
+    {
+        foreach($replacements as $key => $value) {
+            $subject = str_replace($key, $value, $subject);
+        }
+
+        return $subject;
     }
 }
