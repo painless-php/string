@@ -288,4 +288,24 @@ class StrTest extends TestCase
 
         $this->assertSame('foo=value1&bar=value2', Str::replaceAllArray('foo={{foo}}&bar={{bar}}', $replacements));;
     }
+
+    public function testReplacePrefixReplacesPrefix()
+    {
+        $this->assertSame('foo bar baz', Str::replacePrefix('bar bar baz', 'bar', 'foo'));;
+    }
+
+    public function testReplacePrefixDoesNotChangeStringWhenPrefixIsNotFound()
+    {
+        $this->assertSame('foo bar baz', Str::replacePrefix('foo bar baz', 'bar', 'foo'));;
+    }
+
+    public function testReplaceSuffix()
+    {
+        $this->assertSame('foo bar baz', Str::replaceSuffix('foo bar foo', 'foo', 'baz'));;
+    }
+
+    public function testReplaceSuffixDoesNotChangeStringWhenSuffixIsNotFound()
+    {
+        $this->assertSame('foo bar baz', Str::replaceSuffix('foo bar baz', 'bar', 'foo'));;
+    }
 }

@@ -578,4 +578,31 @@ class Str
 
         return $subject;
     }
+
+    /**
+     * Replace prefix from beginning of subject string
+     *
+     */
+    public static function replacePrefix(string $subject, string $prefix, string $replacement) : string
+    {
+        if(static::startsWith($subject, $prefix)) {
+            $subject = $replacement . mb_substr($subject, mb_strlen($prefix));
+        }
+
+        return $subject;
+    }
+
+    /**
+     * Replace a suffix from end of the subject string
+     *
+     */
+    public static function replaceSuffix(string $subject, string $suffix, string $replacement) : string
+    {
+        if(static::endsWith($subject, $suffix)) {
+            $len = mb_strlen($subject) - mb_strlen($suffix);
+            $subject = mb_substr($subject, 0, $len) . $replacement;
+        }
+
+        return $subject;
+    }
 }
