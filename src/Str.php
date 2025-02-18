@@ -135,7 +135,7 @@ class Str
      * Extract a substring from the subject string
      *
      */
-    public static function splice(string &$subject, int $start, int $length = null) : string
+    public static function splice(string &$subject, int $start, int|null $length = null) : string
     {
         if($length === null) {
             $length = mb_strlen($subject);
@@ -332,7 +332,7 @@ class Str
      * Generates a cryptographically secure random string
      *
      */
-    public static function random(int $length, array|string $characters = null) : string
+    public static function random(int $length, array|string|null $characters = null) : string
     {
         if($length < 1) {
             $msg = 'length must be at least 1';
@@ -382,7 +382,7 @@ class Str
      * Get an array containing alphanumeric characters
      *
      */
-    public static function alphanumeric(bool $includeUpper = false, array|string $characters = null) : array
+    public static function alphanumeric(bool $includeUpper = false, array|string|null $characters = null) : array
     {
         if($characters === null) {
             $characters = static::latinAlphabet($includeUpper);

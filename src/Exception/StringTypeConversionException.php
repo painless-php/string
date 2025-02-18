@@ -7,12 +7,12 @@ use PainlessPHP\String\Contract\StringTypeConverterInterface;
 
 class StringTypeConversionException extends Exception
 {
-    public function __construct(string $message, int $code = 0, Exception $previous = null)
+    public function __construct(string $message, int $code = 0, Exception|null $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }
 
-    public static function fromConversion($value, StringTypeConverterInterface $converter = null, int $code = 0, Exception $previous = null) : self
+    public static function fromConversion($value, StringTypeConverterInterface|null $converter = null, int $code = 0, Exception|null $previous = null) : self
     {
         $class = $converter === null ? '' :  'using ' . get_class($converter);
         $value = get_debug_type($value);
