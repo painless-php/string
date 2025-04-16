@@ -17,17 +17,24 @@ composer require painless-php/string
 
 #### Exception
 
-* PainlessPHP\String\Exception\StringSearchException
-* PainlessPHP\String\Exception\StringTypeConversionException
+* `PainlessPHP\String\Exception\StringSearchException`
+* `PainlessPHP\String\Exception\StringTypeConversionException`
 
-## TODO
+## Development
 
-* findFirstLineContaining
-* findLinesContaining
-* findLastLineContaining
-* trimLines
-* editLines
+#### Dynamic method doc generation
 
-* update required php version (can check with package-boilerplate-core eventually)
-* method overview (as markdown table? in readme) / update docs
-* generate ide helper for StrBuilder so that magic methods are exposed to IDE
+Use `php bin/generate_builder_docblock.php` to generate phpdocumentor docblocks
+for the methods that can be called dynamically from StrBuilder.
+
+#### TODO
+
+* generate Str method list in docs with a markdown table
+* bump required php version to 8.4 and add `$builder->str` getter for the result string
+
+* methods
+    * findFirstLineContaining
+    * findLinesContaining
+    * findLastLineContaining
+    * trimLines
+    * editLines
