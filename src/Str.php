@@ -605,4 +605,23 @@ class Str
 
         return $subject;
     }
+
+    /**
+     * Join multiple objects together as a string, ignoring any null values.
+     *
+     */
+    public static function join(string|null $glue = null, mixed ...$parts)
+    {
+        $result = '';
+
+        foreach($parts as $index => $part) {
+            if($part === null) {
+                continue;
+            }
+            $prefix = $index > 0 ? ($glue ?? '') : '';
+            $result .= $prefix . Str::convertFrom($part);
+        }
+
+        return $result;
+    }
 }

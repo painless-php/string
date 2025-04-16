@@ -308,4 +308,29 @@ class StrTest extends TestCase
     {
         $this->assertSame('foo bar baz', Str::replaceSuffix('foo bar baz', 'bar', 'foo'));;
     }
+
+    public function testJoinAttachesTwoParts()
+    {
+        $this->assertSame('foo/bar', Str::join('/', 'foo', 'bar'));
+    }
+
+    public function testJoinAttachesThreeeParts()
+    {
+        $this->assertSame('foo/bar/baz', Str::join('/', 'foo', 'bar', 'baz'));
+    }
+
+    public function testJoinIgnoresNullParts()
+    {
+        $this->assertSame('foo/baz', Str::join('/', 'foo', null, 'baz'));
+    }
+
+    public function testJoiningNullsResultsInEmptyString()
+    {
+        $this->assertSame('', Str::join('/', null, null, null));
+    }
+
+    public function testJoinCanBeCalledViaBuilder()
+    {
+        $this->assertSame('foo/bar/baz', Str::build('foo')->join('/', 'bar', 'baz')->string);
+    }
 }

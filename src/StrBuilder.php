@@ -9,6 +9,12 @@ class StrBuilder
 {
     private static array|null $callableStrMethods = null;
     private static array|null $strMethodsWithSubject = null;
+    private static array|null $argumentListFormatters = null;
+
+    // Introduce $builder->str accessor and bump required php version to 8.4
+    // public string $str {
+    //     get => $this->string;
+    // }
 
     public function __construct(public readonly string $string)
     {
@@ -26,12 +32,18 @@ class StrBuilder
             throw new InvalidArgumentException($msg);
         }
 
-        if(!array_key_exists($name, self::getStrMethodsWithSubject())) {
+        if(array_key_exists($name, self::getArgumentListFormatters())) {
+            $arguments = self::getArgumentListFormatters()[$name]($this->string, $arguments);
+        }
+        else if(!array_key_exists($name, self::getStrMethodsWithSubject())) {
             $msg = "Method '$name' cannot be invoked dynamically.";
             throw new InvalidArgumentException($msg);
         }
+        else {
+            $arguments = [$this->string, ...$arguments];
+        }
 
-        $result = Str::$name($this->string, ...$arguments);
+        $result = Str::$name(...$arguments);
 
         if(is_string($result)) {
             return new self($result);
@@ -112,5 +124,23 @@ class StrBuilder
         }
 
         return self::$strMethodsWithSubject;
+    }
+
+    private static function loadArgumentListFormatters() : array
+    {
+        return [
+            'join' => fn(string $string, array $arguments) => (
+                [array_shift($arguments), ...[$string, ...$arguments]]
+            )
+        ];
+    }
+
+    private static function getArgumentListFormatters() : array
+    {
+        if(self::$argumentListFormatters === null) {
+            self::$argumentListFormatters = self::loadArgumentListFormatters();
+        }
+
+        return self::$argumentListFormatters;
     }
 }
