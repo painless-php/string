@@ -268,7 +268,7 @@ class Str
      * @throws StringTypeConversionException
      *
      */
-    public static function convertTo(string $value, $converter)
+    public static function convertTo(string $value, string|StringTypeConverterInterface $converter)
     {
         if(is_string($converter)) {
 
@@ -284,14 +284,7 @@ class Str
             $converter = new $class();
         }
 
-        $interface = StringTypeConverterInterface::class;
-
-        if(in_array($interface, class_implements($converter))) {
-            return $converter->convert($value);
-        }
-
-        $msg = "Converter must be either a string or an instance of $interface";
-        throw new StringTypeConversionException($msg);
+        return $converter->convert($value);
 
     }
 
@@ -607,7 +600,7 @@ class Str
     }
 
     /**
-     * Join multiple objects together as a string, ignoring any null values.
+     * Join multiple objects together as a string, ignoring any null values and empty strings.
      *
      */
     public static function join(string|null $glue = null, mixed ...$parts)
@@ -615,10 +608,10 @@ class Str
         $result = '';
 
         foreach($parts as $index => $part) {
-            if($part === null) {
+            if($part === null || $part === '') {
                 continue;
             }
-            $prefix = $index > 0 ? ($glue ?? '') : '';
+            $prefix = ($index > 0 && $result !== '') ? ($glue ?? '') : '';
             $result .= $prefix . Str::convertFrom($part);
         }
 

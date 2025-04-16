@@ -329,6 +329,16 @@ class StrTest extends TestCase
         $this->assertSame('', Str::join('/', null, null, null));
     }
 
+    public function testJoinWithFirstValueNullWorks()
+    {
+        $this->assertSame('bar/baz', Str::join('/', null, 'bar', 'baz'));
+    }
+
+    public function testJoinWithLastValueNullWorks()
+    {
+        $this->assertSame('foo/bar', Str::join('/', 'foo', 'bar', null));
+    }
+
     public function testJoinCanBeCalledViaBuilder()
     {
         $this->assertSame('foo/bar/baz', Str::build('foo')->join('/', 'bar', 'baz')->string);
