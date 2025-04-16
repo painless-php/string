@@ -5,6 +5,46 @@ namespace PainlessPHP\String;
 use InvalidArgumentException;
 use ReflectionClass;
 
+/**
+ *
+ *
+ * @method static bool startsWith (string $subject, string ...$starts)
+ * @method static bool endsWith (string $subject, string ...$ends)
+ * @method static string removePrefix (string $subject, string $prefix)
+ * @method static string removeSuffix (string $subject, string $suffix)
+ * @method static bool startsWithWhitespace (string $subject)
+ * @method static array explodeMultiple (string $subject, string ...$delimiters)
+ * @method static string removeRecurring (string $subject, string $character)
+ * @method static string splice (string $subject, int $start, ?int $length)
+ * @method static string afterFirst (string $subject, string $after)
+ * @method static string afterLast (string $subject, string $after)
+ * @method static string beforeFirst (string $subject, string $before)
+ * @method static string beforeLast (string $subject, string $before)
+ * @method static bool contains (string $subject, string $another)
+ * @method static array diff (string $subject, string $another)
+ * @method static bool isConvertable ($value)
+ * @method static string convertFrom ($value)
+ * @method static convertTo (string $value, PainlessPHP\String\Contract\StringTypeConverterInterface|string $converter)
+ * @method static string describe ($value)
+ * @method static string random (int $length, array|string|null $characters)
+ * @method static array latinAlphabet (bool $includeUpper)
+ * @method static array alphanumeric (bool $includeUpper, array|string|null $characters)
+ * @method static string addPrefix (string $subject, string $prefix)
+ * @method static string addSuffix (string $subject, string $suffix)
+ * @method static string removeLeading (string $subject, string ...$prefixes)
+ * @method static string removeTrailing (string $subject, string ...$suffixes)
+ * @method static string toSnakeCase (string $subject, array $convertedCharacters)
+ * @method static string toKebabCase (string $subject, array $convertedCharacters)
+ * @method static array characters (string $subject, bool $unique)
+ * @method static string findFirstWordContaining (string $subject, string $search)
+ * @method static array findAllWordsContaining (string $subject, string $search)
+ * @method static PainlessPHP\String\StrBuilder build (string $subject)
+ * @method static string replaceAll (string $subject, string $search, string $replace)
+ * @method static string replaceAllArray (string $subject, array $replacements)
+ * @method static string replacePrefix (string $subject, string $prefix, string $replacement)
+ * @method static string replaceSuffix (string $subject, string $suffix, string $replacement)
+ * @method static join (?string $glue, mixed ...$parts)
+ */
 class StrBuilder
 {
     private static array|null $callableStrMethods = null;
