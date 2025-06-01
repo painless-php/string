@@ -343,4 +343,24 @@ class StrTest extends TestCase
     {
         $this->assertSame('foo/bar/baz', Str::build('foo')->join('/', 'bar', 'baz')->string);
     }
+
+    public function testToCamelCaseConvertsSnakeCaseToCamelCase()
+    {
+        $this->assertSame('snakeCaseString', Str::toCamelCase('snake_case_string'));
+    }
+
+    public function testToCamelCaseDoesNothingToCamelCaseString()
+    {
+        $this->assertSame('camelCaseString', Str::toCamelCase('camelCaseString'));
+    }
+
+    public function testToCamelCaseDoesNotConvertFirstCharacter()
+    {
+        $this->assertSame('snakeCase', Str::toCamelCase('_snake_case'));
+    }
+
+    public function testToCamelCaseStripsLastCharacter()
+    {
+        $this->assertSame('snakeCase', Str::toCamelCase('snake_case_'));
+    }
 }

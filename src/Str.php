@@ -497,6 +497,33 @@ class Str
     }
 
     /**
+     * Convert a given string into camel case.
+     */
+    public static function toCamelCase(string $subject, array $convertedCharacters = ['-', '_']) : string
+    {
+        $str = '';
+
+        foreach(mb_str_split($subject) as $index => $char) {
+            $previousChar = substr($subject, $index -1, 1);
+
+            // Skip converted characters
+            if(in_array($char, $convertedCharacters)) {
+                continue;
+            }
+
+            // Uppercase characters after converted characters
+            if(in_array($previousChar, $convertedCharacters) && $index > 1) {
+                $str .= strtoupper($char);
+                continue;
+            }
+
+            $str .= $char;
+        }
+
+        return $str;
+    }
+
+    /**
      * Get all characters in the string as an array
      *
      */
